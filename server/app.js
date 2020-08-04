@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+require('dotenv').config()
 
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';

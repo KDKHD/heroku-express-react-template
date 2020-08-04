@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -19,7 +21,7 @@ var _users = _interopRequireDefault(require("./routes/users"));
 
 var _passwordGenerator = _interopRequireDefault(require("password-generator"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+require('dotenv').config();
 
 var app = (0, _express["default"])();
 app.use((0, _morgan["default"])('dev'));
