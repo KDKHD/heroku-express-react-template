@@ -12,7 +12,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 // Put all API endpoints under '/api'
 import generatePassword from 'password-generator';
@@ -28,6 +28,12 @@ app.get('/api/passwords', (req, res) => {
     res.json(passwords);
   
     console.log(`Sent ${count} passwords`);
+  });
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'../client/build/index.html'));
   });
 
 export default app;

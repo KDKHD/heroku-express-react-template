@@ -28,9 +28,7 @@ app.use(_express["default"].urlencoded({
   extended: false
 }));
 app.use((0, _cookieParser["default"])());
-app.use(_express["default"]["static"](_path["default"].join(__dirname, 'client/build')));
-app.use('/', _index["default"]);
-app.use('/users', _users["default"]); // Put all API endpoints under '/api'
+app.use(_express["default"]["static"](_path["default"].join(__dirname, '../client/build'))); // Put all API endpoints under '/api'
 
 app.get('/api/passwords', function (req, res) {
   var count = 5; // Generate some passwords
@@ -41,6 +39,11 @@ app.get('/api/passwords', function (req, res) {
 
   res.json(passwords);
   console.log("Sent ".concat(count, " passwords"));
+}); // The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+
+app.get('*', function (req, res) {
+  res.sendFile(_path["default"].join(__dirname + '../client/build/index.html'));
 });
 var _default = app;
 exports["default"] = _default;
