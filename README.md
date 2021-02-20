@@ -14,9 +14,9 @@ Proxy API from react to Express
 
 MongoDB connection.
 
-## Heroku easy deply
+## Heroku easy deploy
 
-Post build script included. Push project and Express and react are both deployed.
+Post build script included. Push project -> Express and react are both deployed.
 
 ## How to run
 
